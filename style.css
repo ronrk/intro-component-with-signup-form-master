@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-primary-red: hsl(0, 100%, 74%);
+  --color-primary-green: hsl(154, 59%, 51%);
+  --color-blue: hsl(248, 32%, 49%);
+  --color-blue-dark: hsl(249, 10%, 26%);
+  --color-blue-gray: hsl(246, 25%, 77%);
+  --def-font: 'Poppins', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 56.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--def-font);
+  max-width: 100%;
+  min-height: 100vh;
+
+  background-image: url(images/bg-intro-desktop.png),
+    linear-gradient(hsla(0, 100%, 74%, 0.9), hsla(0, 100%, 74%, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 4rem;
+  max-width: 50%;
+}
+.content h1 {
+  font-size: 5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.content p {
+  font-size: 1.6rem;
+  color: #eee;
+  font-weight: 400;
+}
+
+.form-container {
+  /* padding: 10rem 4rem; */
+  /* align-self: center; */
+  max-width: 50%;
+
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-container h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: var(--color-blue);
+  padding: 1rem 4rem;
+  border-radius: 4px;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.9);
+  margin-bottom: 2rem;
+}
+
+.form-container h2 span {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 4px;
+  /* height: 50rem; */
+  padding: 2rem;
+}
+
+form .form-control {
+  padding: 2rem 4rem;
+  position: relative;
+}
+
+form .form-control input {
+  width: 100%;
+  height: 5rem;
+  padding: 2rem;
+  border: 0;
+  border: 1px solid var(--color-blue-gray);
+  border-radius: 3px;
+  font-size: 1.8rem;
+  font-family: var(--def-font);
+  font-weight: 600;
+}
+
+form .form-control span {
+  position: absolute;
+  right: 0;
+  transform: translateX(-30%);
+  color: var(--color-primary-red);
+  margin-top: 0.5rem;
+  bottom: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity 5s;
+}
+
+form .form-control img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-200%, 120%);
+  display: none;
+  opacity: 0;
+}
+
+form .form-control input:focus {
+  outline: none;
+}
+
+form .form-control input:focus:invalid {
+  border-color: var(--color-primary-red);
+}
+
+form .form-control input:valid {
+  border-color: var(--color-primary-green);
+}
+
+form .form-control input:invalid:focus + span,
+form .form-control input:invalid:focus + span + img {
+  opacity: 1;
+  display: block;
+}
+
+/* form .form-control input:valid + span {
+  opacity: 0;
+  display: none;
+} */
+
+form .form-control input::placeholder {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+form button {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--color-primary-green);
+  border: 0;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+}
+form button:hover {
+  opacity: 0.9;
+}
+form button:active {
+  transform: scale(0.98);
+}
+form small {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-blue-gray);
+}
+
+form small a:link,
+form small a:visited {
+  columns: var(--color-primary-red);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 50em) {
+  body {
+    flex-direction: column;
+    min-height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .content {
+    max-width: 90%;
+  }
+  .form-container {
+    max-width: 90%;
+    padding: 0;
+  }
+
+  form {
+    margin-bottom: 4rem;
+  }
+}
